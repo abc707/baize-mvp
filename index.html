@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#12100c" />
+    <meta name="description" content="择地而听，录下此刻。白泽地点签到与现场录音。" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="白泽" />
+    <title>白泽</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="app">
+      <section id="view-home" class="view">
+        <header class="hero">
+          <p class="eyebrow">神兽旁白 · 现场留声</p>
+          <h1>白泽</h1>
+          <p class="lede">择地而听 · 录下此刻</p>
+        </header>
+        <p id="home-status" class="status" hidden></p>
+        <div id="location-list" class="place-list"></div>
+        <p class="footnote">
+          录音只保存在你的浏览器本机，不会上传。清除网站数据后录音也会消失。
+        </p>
+      </section>
+
+      <section id="view-location" class="view" hidden>
+        <button type="button" id="back-btn" class="back-btn">返回地点</button>
+        <header class="loc-hero">
+          <p class="eyebrow">已签到</p>
+          <h1 id="loc-name"></h1>
+          <p id="loc-teaser" class="lede"></p>
+        </header>
+        <blockquote id="loc-narration" class="narration"></blockquote>
+        <div class="panel">
+          <button type="button" id="play-narration" class="gold-btn" aria-pressed="false">
+            <span class="gold-btn__mark" aria-hidden="true"></span>
+            <span id="play-label">聆听白泽</span>
+          </button>
+          <audio id="narration-audio" preload="auto"></audio>
+        </div>
+        <div class="panel record-panel">
+          <p class="panel-kicker">现场留声</p>
+          <p class="hint">首次录音时，浏览器会请求麦克风权限。</p>
+          <button type="button" id="record-btn" class="record-btn" aria-pressed="false">
+            <span class="record-btn__ring" aria-hidden="true"></span>
+            <span id="record-label">开始录音</span>
+            <span id="record-timer">0:00</span>
+          </button>
+        </div>
+        <p id="loc-status" class="status" hidden></p>
+        <section class="history">
+          <h2>此地录音</h2>
+          <div id="recordings" class="recordings"></div>
+        </section>
+      </section>
+    </div>
+
+    <aside id="install-banner" class="install-banner" hidden>
+      <div>
+        <strong id="install-title">添加到主屏幕</strong>
+        <p id="install-text"></p>
+      </div>
+      <div class="install-banner__actions">
+        <button type="button" id="install-btn" class="gold-btn gold-btn--small">添加</button>
+        <button type="button" id="install-dismiss" class="text-btn">稍后</button>
+      </div>
+    </aside>
+
+    <script src="./js/db.js"></script>
+    <script src="./js/recorder.js"></script>
+    <script src="./js/locations.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
